@@ -14,6 +14,7 @@ class JSONResponse(HttpResponse):
 
 @csrf_exempt
 def lista_libro(request):
+    print ("hola")
     if request.method == 'GET':
         libro = Libro.objects.all()
         serializer = LibroSerializer(libro, many=True)
