@@ -5,6 +5,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status
 from .models import Autor, Libro
 from .serializers import LibroSerializer, AutorSerializer
+from django.shortcuts import render
 
 class JSONResponse(HttpResponse):
     def __init__(self, data, **kwargs):
@@ -41,6 +42,3 @@ def lista_autor(request):
             serializer.save()
             return JSONResponse(serializer.data, status=201)
         return JSONResponse(serializer.errors, status=400)
-@csrf_exempt
-def index(request):
-    return render_tempalte(index)
